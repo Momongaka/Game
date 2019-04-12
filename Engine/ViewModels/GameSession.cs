@@ -1,17 +1,23 @@
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Engine.Models;
 
 namespace Engine.ViewModels
 {
     public class GameSession
     {
-        private Player CurrentPlayer { get; set; }
+        public Player CurrentPlayer { get; set; }
 
         public GameSession()
         {
             CurrentPlayer = new Player();
             CurrentPlayer.Name = "Daniel";
-            CurrentPlayer.Gold = 100000;
+            CurrentPlayer.Gold = 1000000;
+            CurrentPlayer.XP = 0;
+            CurrentPlayer.Level = 1;
         }
     }
 }

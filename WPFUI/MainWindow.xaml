@@ -13,6 +13,9 @@
         xmlns:local="clr-namespace:WPFUI"
         xmlns:generic="clr-namespace:System.Collections.Generic;assembly=mscorlib"
         mc:Ignorable="d"
+        xmlns:viewModels="clr-namespace:Engine.ViewModels;assembly=Engine"
+        d:DataContext="{d:DesignInstance viewModels:GameSession}"
+        
         Title="Daniel's Awesome Game" Height="768" Width="1024">
     <Window.Resources>
         <ResourceDictionary>
@@ -68,30 +71,43 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
+
                 <Label Content="Player Data" />
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
+
                     <Grid.RowDefinitions>
                         <RowDefinition />
                         <RowDefinition />
                         <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
                     </Grid.RowDefinitions>
-                    <Label Content="HP" Grid.Row="0" Grid.Column="0" />
-                    <Label Content="{Binding Path=HP, Source={x:Static local:MainWindow.Player}}" Grid.Row="0"
-                           Grid.Column="1" />
-                    <Label Content="MP" Grid.Row="1" Grid.Column="0" />
-                    <Label Content="{Binding Path=MP, Source={x:Static local:MainWindow.Player}}" Grid.Row="1"
-                           Grid.Column="1" />
-                    <Label Content="SAN" Grid.Row="2" Grid.Column="0" />
-                    <Label Content="{Binding Path=SAN, Source={x:Static local:MainWindow.Player}}" Grid.Row="2"
-                           Grid.Column="1" />
+
+                    <Label Content="Name" Grid.Row="0" Grid.Column="0" />
+                    <Label Content="{Binding Path=CurrentPlayer.Name}" Grid.Row="0" Grid.Column="1" />
+                    
+                    <Label Content="CharacterClass" Grid.Row="1" Grid.Column="0" />
+                    <Label Content="{Binding Path=CurrentPlayer.CharacterClass}" Grid.Row="1" Grid.Column="1" />
+
+                    <Label Content="Level" Grid.Row="2" Grid.Column="0" />
+                    <Label Content="{Binding Path=CurrentPlayer.Level}" Grid.Row="2" Grid.Column="1" />
+
+                    <Label Content="XP" Grid.Row="3" Grid.Column="0" />
+                    <Label Content="{Binding Path=CurrentPlayer.XP}" Grid.Row="3" Grid.Column="1" />
+
+                    <Label Content="HP" Grid.Row="4" Grid.Column="0" />
+                    <Label Content="{Binding Path=CurrentPlayer.HP}" Grid.Row="4" Grid.Column="1" />
+                    
+                    <Button Grid.Row="5" Grid.Column="0" Content="Add XP" Click="ButtonBase_OnClick"></Button>
                 </Grid>
-                <ListBox Grid.Row="2" ItemsSource="{Binding Path=Inventory, Source={x:Static local:MainWindow.Player}}"
+                <!--<ListBox Grid.Row="2" ItemsSource="{Binding Path=Inventory, Source={x:Static local:MainWindow.Player}}"
                          ItemContainerStyle="{StaticResource PlayerDataListItemStyle}"
-                         ItemTemplate="{StaticResource PlayerDataListItem}" />
+                         ItemTemplate="{StaticResource PlayerDataListItem}" />-->
             </Grid>
         </mat:Card>
         <mat:Card Margin="5" Padding="10" Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch"

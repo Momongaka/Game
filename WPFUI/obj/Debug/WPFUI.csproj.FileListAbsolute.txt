@@ -64,3 +64,5 @@ J:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\ShowMeTheXAML.dll
 J:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\MaterialDesignThemes.Wpf.pdb
 J:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\MaterialDesignThemes.Wpf.xml
 J:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI.csproj.CopyComplete
+J:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\Engine.dll
+J:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\Engine.pdb

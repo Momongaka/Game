@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Data;
+using Engine.ViewModels;
 
 namespace WPFUI
 {
@@ -13,11 +14,13 @@ namespace WPFUI
     /// </summary>
     public partial class MainWindow
     {
-        public static readonly Player Player = new Player();
+        private GameSession _gameSession;
         
         public MainWindow()
         {
             InitializeComponent();
+            _gameSession = new GameSession();
+            DataContext = _gameSession;
             Loaded += OnLoaded;
         }
 
@@ -25,73 +28,10 @@ namespace WPFUI
         {
             
         }
-    }
 
-    public class Player
-    {
-        private readonly Random _rand = new Random();
-        
-        private readonly Prop<int> _hp = new Prop<int>();
-        public int HP
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            get => _hp.Value;
-            set => _hp.Value = value;
-        }
-
-        private readonly Prop<int> _mp = new Prop<int>();
-        public int MP
-        {
-            get => _mp.Value;
-            set => _mp.Value = value;
-        }
-        private readonly Prop<int> _san = new Prop<int>();
-        public int SAN
-        {
-            get => _san.Value;
-            set => _san.Value = value;
-        }
-
-        public List<Item> _inventory = new List<Item>
-        {
-            new Item {ID = "apple", Count = 4, Name = "Apple"},
-            new Item {ID = "orange", Count = 2, Name = "Orange"},
-            new Item {ID = "taco", Count = int.MaxValue, Name = "Taco"},
-        };
-
-        private readonly ObservableCollection<Item> _inv;
-        public ObservableCollection<Item> Inventory => _inv;
-        
-
-        public Player()
-        {
-            HP = _rand.Next(15) + 5;
-            MP = _rand.Next(15) + 5;
-            SAN = 100;
-            _inv = new ObservableCollection<Item>(_inventory);
-        }
-    }
-
-    public class Item
-    {
-        private readonly Prop<string> _name = new Prop<string>();
-        public string Name
-        {
-            get => _name.Value;
-            set => _name.Value = value;
-        }
-
-        private readonly Prop<string> _id = new Prop<string>();
-        public string ID
-        {
-            get => _id.Value;
-            set => _id.Value = value;
-        }
-        
-        private readonly Prop<int> _count = new Prop<int>();
-        public int Count
-        {
-            get => _count.Value;
-            set => _count.Value = value;
+            _gameSession.CurrentPlayer.XP = _gameSession.CurrentPlayer.XP + 10;
         }
     }
     
