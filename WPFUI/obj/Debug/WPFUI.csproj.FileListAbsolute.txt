@@ -1,0 +1,66 @@
+J:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI.csprojAssemblyReference.cache
+J:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\MainWindow.g.cs
+J:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\App.g.cs
+J:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI_MarkupCompile.cache
+J:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI_MarkupCompile.lref
+J:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\MainWindow.baml
+J:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI.g.resources
+J:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI.pdb
+J:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\WPFUI.exe.config
+J:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\WPFUI.exe
+J:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\WPFUI.pdb
+J:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI.Properties.Resources.resources
+J:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI.csproj.GenerateResource.cache
+J:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI.csproj.CoreCompileInputs.cache
+J:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI.exe
+C:\Users\da3ds\Documents\GitHub\SOSCSRPG\WPFUI\bin\Debug\WPFUI.exe.config
+C:\Users\da3ds\Documents\GitHub\SOSCSRPG\WPFUI\bin\Debug\WPFUI.exe
+C:\Users\da3ds\Documents\GitHub\SOSCSRPG\WPFUI\bin\Debug\WPFUI.pdb
+C:\Users\da3ds\Documents\GitHub\SOSCSRPG\WPFUI\bin\Debug\MaterialDesignColors.dll
+C:\Users\da3ds\Documents\GitHub\SOSCSRPG\WPFUI\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\da3ds\Documents\GitHub\SOSCSRPG\WPFUI\bin\Debug\ShowMeTheXAML.dll
+C:\Users\da3ds\Documents\GitHub\SOSCSRPG\WPFUI\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\da3ds\Documents\GitHub\SOSCSRPG\WPFUI\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\da3ds\Documents\GitHub\SOSCSRPG\WPFUI\obj\Debug\WPFUI.csprojAssemblyReference.cache
+C:\Users\da3ds\Documents\GitHub\SOSCSRPG\WPFUI\obj\Debug\MainWindow.g.cs
+C:\Users\da3ds\Documents\GitHub\SOSCSRPG\WPFUI\obj\Debug\App.g.cs
+C:\Users\da3ds\Documents\GitHub\SOSCSRPG\WPFUI\obj\Debug\WPFUI_MarkupCompile.cache
+C:\Users\da3ds\Documents\GitHub\SOSCSRPG\WPFUI\obj\Debug\WPFUI_MarkupCompile.lref
+C:\Users\da3ds\Documents\GitHub\SOSCSRPG\WPFUI\obj\Debug\MainWindow.baml
+C:\Users\da3ds\Documents\GitHub\SOSCSRPG\WPFUI\obj\Debug\WPFUI.g.resources
+C:\Users\da3ds\Documents\GitHub\SOSCSRPG\WPFUI\obj\Debug\WPFUI.Properties.Resources.resources
+C:\Users\da3ds\Documents\GitHub\SOSCSRPG\WPFUI\obj\Debug\WPFUI.csproj.GenerateResource.cache
+C:\Users\da3ds\Documents\GitHub\SOSCSRPG\WPFUI\obj\Debug\WPFUI.csproj.CoreCompileInputs.cache
+C:\Users\da3ds\Documents\GitHub\SOSCSRPG\WPFUI\obj\Debug\WPFUI.csproj.CopyComplete
+C:\Users\da3ds\Documents\GitHub\SOSCSRPG\WPFUI\obj\Debug\WPFUI.exe
+C:\Users\da3ds\Documents\GitHub\SOSCSRPG\WPFUI\obj\Debug\WPFUI.pdb
+C:\Users\da3ds\Documents\GitHub\SOSCSRPG\WPFUI\bin\Debug\ParallelExtensionsExtras.dll
+I:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI.exe
+I:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI.pdb
+I:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\WPFUI.exe.config
+I:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\WPFUI.exe
+I:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\WPFUI.pdb
+I:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\MaterialDesignColors.dll
+I:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\MaterialDesignThemes.Wpf.dll
+I:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\ParallelExtensionsExtras.dll
+I:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\ShowMeTheXAML.dll
+I:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\MaterialDesignThemes.Wpf.pdb
+I:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\MaterialDesignThemes.Wpf.xml
+I:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI.csprojAssemblyReference.cache
+I:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\MainWindow.g.cs
+I:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\App.g.cs
+I:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI_MarkupCompile.cache
+I:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI_MarkupCompile.lref
+I:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\MainWindow.baml
+I:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI.g.resources
+I:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI.Properties.Resources.resources
+I:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI.csproj.GenerateResource.cache
+I:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI.csproj.CoreCompileInputs.cache
+I:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI.csproj.CopyComplete
+J:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\MaterialDesignColors.dll
+J:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\MaterialDesignThemes.Wpf.dll
+J:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\ParallelExtensionsExtras.dll
+J:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\ShowMeTheXAML.dll
+J:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\MaterialDesignThemes.Wpf.pdb
+J:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\MaterialDesignThemes.Wpf.xml
+J:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI.csproj.CopyComplete

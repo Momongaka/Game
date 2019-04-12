@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gstc.Collections.Observable</name>
+    </assembly>
+    <members>
+        <member name="M:Gstc.Collections.Observable.Notify.NotifyDictionaryChangedEventArgs.#ctor(Gstc.Collections.Observable.Notify.NotifyDictionaryChangedAction)">
+            <summary>
+            Construct a NotifyDictionaryChangedEventArgs that describes a reset change.
+            </summary>
+            <param name="action">The action that caused the event; must be Reset action.</param>
+        </member>
+        <member name="M:Gstc.Collections.Observable.Notify.NotifyDictionaryChangedEventArgs.#ctor(Gstc.Collections.Observable.Notify.NotifyDictionaryChangedAction,System.Object,System.Object)">
+            <summary>
+            Construct a NotifyDictionaryChangedEventArgs that describes a one-item change.
+            </summary>
+            <param name="action">The action that caused the event; must be Add or Remove action.</param>
+            <param name="changedItem">The item affected by the change.</param>
+            <param name="key">The key where the change occurred.</param>
+        </member>
+        <member name="M:Gstc.Collections.Observable.Notify.NotifyDictionaryChangedEventArgs.#ctor(Gstc.Collections.Observable.Notify.NotifyDictionaryChangedAction,System.Collections.Generic.IList{System.Object},System.Collections.Generic.IList{System.Object})">
+            <summary>
+            Construct a NotifyDictionaryChangedEventArgs that describes a multi-item change; can only be Add or Remove action.
+            </summary>
+            <param name="action">The action that caused the event.</param>
+            <param name="changedItems">The items affected by the change.</param>
+            <param name="keys">Keys of items that have been changed.</param>
+        </member>
+        <member name="M:Gstc.Collections.Observable.Notify.NotifyDictionaryChangedEventArgs.#ctor(Gstc.Collections.Observable.Notify.NotifyDictionaryChangedAction,System.Object,System.Object,System.Object)">
+            <summary>
+            Construct a NotifyDictionaryChangedEventArgs that describes a one-item Replace event, can only be Replace.
+            </summary>
+            <param name="action">Can only be a Replace action.</param>
+            <param name="newItem">The new item replacing the original item.</param>
+            <param name="oldItem">The original item that is replaced.</param>
+            <param name="key">Keys of items that have been replaced.</param>
+        </member>
+        <member name="M:Gstc.Collections.Observable.Notify.NotifyDictionaryChangedEventArgs.#ctor(Gstc.Collections.Observable.Notify.NotifyDictionaryChangedAction,System.Collections.Generic.IList{System.Object},System.Collections.Generic.IList{System.Object},System.Collections.Generic.IList{System.Object})">
+            <summary>
+            Construct a NotifyDictionaryChangedEventArgs that describes a multi-item Replace event.
+            </summary>
+            <param name="action">Can only be a Replace action.</param>
+            <param name="newItems">The new items replacing the original items.</param>
+            <param name="oldItems">The original items that are replaced.</param>
+            <param name="keys">Keys of items that have been replaced.</param>
+        </member>
+        <member name="P:Gstc.Collections.Observable.Notify.NotifyDictionaryChangedEventArgs.Action">
+            <summary>
+            The action that caused the event.
+            </summary>
+        </member>
+        <member name="P:Gstc.Collections.Observable.Notify.NotifyDictionaryChangedEventArgs.NewItems">
+            <summary>
+            The items affected by the change.
+            </summary>
+        </member>
+        <member name="P:Gstc.Collections.Observable.Notify.NotifyDictionaryChangedEventArgs.OldItems">
+            <summary>
+            The old items affected by the change (for Replace events).
+            </summary>
+        </member>
+        <member name="P:Gstc.Collections.Observable.Notify.NotifyDictionaryChangedEventArgs.NewKeys">
+            <summary>
+            The index where the change occurred.
+            </summary>
+        </member>
+        <member name="P:Gstc.Collections.Observable.Notify.NotifyDictionaryChangedEventArgs.OldKeys">
+            <summary>
+            The old index where the change occurred (for Move events).
+            </summary>
+        </member>
+        <member name="T:Gstc.Collections.Observable.Notify.SR">
+            <summary>
+            Kludge to keep code consistent with the .NET core error handling signatures.
+            </summary>
+        </member>
+        <member name="T:Gstc.Collections.Observable.misc.EnumeratorAdapter`2">
+            <summary>
+            Enumerator that exposes model item type (T1) as model view item type (T2). 
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+        </member>
+        <member name="T:Gstc.Collections.Observable.misc.EnumeratorAdapterTyped`2">
+            <summary>
+            Enumerator that exposes model item type (T1) as model view item type (T2). 
+            </summary>
+            <typeparam name="T1">Input Type</typeparam>
+            <typeparam name="T2">Output type</typeparam>
+        </member>
+        <member name="T:Gstc.Collections.Observable.Extended.ObservableDictionaryCollection`2">
+            <summary>
+            An observable Dictionary with a backing list and observable Icollection.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+        </member>
+        <member name="T:Gstc.Collections.Observable.Extended.ObservableListAdapterFunc`2">
+             <summary>
+             This class is an implementation of the abstract class ObservableListAdapter with the
+             Convert method defined at instantiation using an anonymous function in the constructor.
+            
+             For Details see the ObservableListAdapter class. 
+             </summary>
+             <typeparam name="TInput">Source element type (e.g. Model class)</typeparam>
+             <typeparam name="TOutput">Destination element type (e.g. ViewModel class</typeparam>
+        </member>
+        <member name="T:Gstc.Collections.Observable.Extended.ObservableListKeyed`2">
+             <summary>
+             This class is an Observable List wherein items are accessed via index using a Key defined in the
+             object, functioning somewhat similar to a Keyed Collection. Standard integer indexing can be used
+             using the exposed List property.
+            
+             This class can be used to wrap a standard list via constructor.
+            
+             The class implements the INotifyCollectionChanged and INotifyDictionaryChanged providing notification
+             on the change of objects.
+            
+             The class contains a backing List, wherein elements can be accessed via index, and a backing dictionary
+             providing O(1) index access times. The dictionary key is defined by the GetKey method and created
+             when added to the list. Care should be taken when updating the key property in the element, as it
+             will not propogate to the dictionary.
+             
+             </summary>
+             <typeparam name="TKey"></typeparam>
+             <typeparam name="TValue"></typeparam>
+        </member>
+        <member name="M:Gstc.Collections.Observable.Extended.ObservableListKeyed`2.GetKey(`1)">
+            <summary>
+            This is the map between your object and its internal key. It must be overridden, or alternatively use the ObservableKeyedListFunc class,
+            and supply it with a Delegate.
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Gstc.Collections.Observable.Extended.ObservableListKeyed`2.List">
+            <summary>
+            Sets the internal list the ListKeyed is bound too.
+            </summary>
+        </member>
+        <member name="P:Gstc.Collections.Observable.Extended.ObservableListKeyed`2.Dictionary">
+            <summary>
+            Returns the internal dictionary that is used to track keys on the list.
+            </summary>
+        </member>
+        <member name="T:Gstc.Collections.Observable.Extended.ObservableListKeyedFunc`2">
+             <summary>
+             This class is an implementation of ListKeyed that defines its GetKey method
+             via anonymous function at runtime.
+            
+             See the ListKeyed for more details. 
+             </summary>
+             <typeparam name="TKey"></typeparam>
+             <typeparam name="TValue"></typeparam>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Gstc.Collections.Observable.Extended.ObservableListAdapter`2" -->
+        <member name="M:Gstc.Collections.Observable.Extended.ObservableListAdapter`2.#ctor(Gstc.Collections.Observable.Interface.IObservableCollection{`0})">
+            <summary>
+            Initializes a ObservableListAdapter with a collection implementing IObservable collection.
+            </summary>
+            <param name="sourceCollection"></param>
+        </member>
+        <member name="T:Gstc.Collections.Observable.Standard.ObservableList`1">
+            <summary>
+            This class is a wrapper for a List that implements IList, INotifyCollectionChanged and contains
+            additional utility functions. It can be instantated on its own, or instantied with an already
+            existing List. In many cases using ObservableList may be preffered over using the .NET ObservableCollection
+            for its compatiblity with existing collection types and interface.
+            </summary>
+            <typeparam name="TItem"></typeparam>
+        </member>
+        <member name="T:Gstc.Collections.Observable.Standard.ObservableDictionary`2">
+            <summary>
+            Observable dictionary can serve as a stand alone dictionary, or serve as an observable wrapper for a pre-existing dictionary.
+            ObservableDictionary implements INotifyPropertyChanged and INotifyDictionaryChanged. It does NOT implement ICollectionChanged.
+            Use an ObservableKeyedCollection or SortedList if you need ICollectionChanged.
+            
+            </summary>
+            <typeparam name="TKey">Key field of Dictionary</typeparam>
+            <typeparam name="TValue">Value field of Dictionary</typeparam>
+        </member>
+        <member name="T:Gstc.Collections.Observable.Standard.ObservableSortedList`2">
+            <summary>
+            This class is a wrapper for a sorted list that implements INotifyCollectionChanged and INotifyDictionaryChanged.
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+        </member>
+    </members>
+</doc>
