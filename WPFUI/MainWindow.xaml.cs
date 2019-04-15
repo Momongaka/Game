@@ -21,18 +21,28 @@ namespace WPFUI
             InitializeComponent();
             _gameSession = new GameSession();
             DataContext = _gameSession;
-            Loaded += OnLoaded;
         }
 
-        private void OnLoaded(object sender, RoutedEventArgs e)
+        private void OnClick_MoveNorth(object sender, RoutedEventArgs e)
         {
-            
+            _gameSession.MoveNorth();
         }
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        private void OnClick_MoveWest(object sender, RoutedEventArgs e)
         {
-            _gameSession.CurrentPlayer.XP = _gameSession.CurrentPlayer.XP + 10;
+            _gameSession.MoveWest();
         }
+        private void OnClick_MoveEast(object sender, RoutedEventArgs e)
+        {
+            _gameSession.MoveEast();
+        }
+        private void OnClick_MoveSouth(object sender, RoutedEventArgs e)
+        {
+            _gameSession.MoveSouth();
+        }
+        /*private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+            {
+                _gameSession.CurrentPlayer.XP = _gameSession.CurrentPlayer.XP + 10;
+            }*/
     }
     
     public class Prop<T> : INotifyPropertyChanged

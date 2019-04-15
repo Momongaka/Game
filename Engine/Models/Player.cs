@@ -20,57 +20,39 @@ namespace Engine.Models
         {
             get { return _name;}
             set
-            {
-                _name = value;
-                OnPropertyChanged("Name");
-            }
+            { _name = value; OnPropertyChanged("Name"); }
         }
         public string CharacterClass
         {
             get { return _characterClass;}
             set
-            {
-                _characterClass = value;
-                OnPropertyChanged("CharacterClass");
-            }
+            { _characterClass = value; OnPropertyChanged("CharacterClass"); }
         }
         public int HP 
         {
             get { return _hP;}
             set
-            {
-                _hP = value;
-                OnPropertyChanged("HP");
-            }
+            { _hP = value; OnPropertyChanged("HP"); }
         }
 
         public int XP
         {
             get { return _experiencePoints;}
             set
-            {
-                _experiencePoints = value;
-                OnPropertyChanged("XP");
-            }
+            { _experiencePoints = value; OnPropertyChanged("XP"); }
         }
 
         public int Level
         {
             get { return _level;}
             set
-            {
-                _level = value;
-                OnPropertyChanged("Level");
-            }
+            { _level = value; OnPropertyChanged("Level"); }
         }
         public int Gold
         {
             get { return _gold;}
             set
-            {
-                _gold = value;
-                OnPropertyChanged("Gold");
-            }
+            { _gold = value; OnPropertyChanged("Gold"); }
         }
         
         public event PropertyChangedEventHandler PropertyChanged;
