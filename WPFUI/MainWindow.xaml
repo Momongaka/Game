@@ -10,9 +10,13 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        FontSize="11pt"
         xmlns:local="clr-namespace:WPFUI"
         xmlns:generic="clr-namespace:System.Collections.Generic;assembly=mscorlib"
         mc:Ignorable="d"
+        xmlns:viewModels="clr-namespace:Engine.ViewModels;assembly=Engine"
+        d:DataContext="{d:DesignInstance viewModels:GameSession}"
+        
         Title="Daniel's Awesome Game" Height="768" Width="1024">
     <Window.Resources>
         <ResourceDictionary>
@@ -26,14 +30,16 @@
                 <ResourceDictionary
                     Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/accent/materialdesigncolor.lime.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
 
-            <Style x:Key="PlayerDataListItemStyle" TargetType="ListBoxItem"
+            <!--<Style x:Key="PlayerDataListItemStyle" TargetType="ListBoxItem"
                    BasedOn="{StaticResource MaterialDesignListBoxItem}">
                 <Setter Property="Background" Value="Pink" />
                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-            </Style>
+            </Style>-->
 
-            <DataTemplate x:Key="PlayerDataListItem" DataType="ListBoxItem">
+            <!--<DataTemplate x:Key="PlayerDataListItem" DataType="ListBoxItem">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -42,8 +48,9 @@
                     <Label Content="{Binding Name}" />
                     <Label Content="{Binding Count}" Grid.Column="1" HorizontalAlignment="Right" />
                 </Grid>
-            </DataTemplate>
+            </DataTemplate>-->
         </ResourceDictionary>
+        
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -68,47 +75,130 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
+
                 <Label Content="Player Data" />
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
+
                     <Grid.RowDefinitions>
                         <RowDefinition />
                         <RowDefinition />
                         <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
                     </Grid.RowDefinitions>
-                    <Label Content="HP" Grid.Row="0" Grid.Column="0" />
-                    <Label Content="{Binding Path=HP, Source={x:Static local:MainWindow.Player}}" Grid.Row="0"
-                           Grid.Column="1" />
-                    <Label Content="MP" Grid.Row="1" Grid.Column="0" />
-                    <Label Content="{Binding Path=MP, Source={x:Static local:MainWindow.Player}}" Grid.Row="1"
-                           Grid.Column="1" />
-                    <Label Content="SAN" Grid.Row="2" Grid.Column="0" />
-                    <Label Content="{Binding Path=SAN, Source={x:Static local:MainWindow.Player}}" Grid.Row="2"
-                           Grid.Column="1" />
+
+                    <Label Content="Name" Grid.Row="0" Grid.Column="0" />
+                    <Label Content="{Binding Path=CurrentPlayer.Name}" Grid.Row="0" Grid.Column="1" />
+                    
+                    <Label Content="CharacterClass" Grid.Row="1" Grid.Column="0" />
+                    <Label Content="{Binding Path=CurrentPlayer.CharacterClass}" Grid.Row="1" Grid.Column="1" />
+
+                    <Label Content="Level" Grid.Row="2" Grid.Column="0" />
+                    <Label Content="{Binding Path=CurrentPlayer.Level}" Grid.Row="2" Grid.Column="1" />
+
+                    <Label Content="XP" Grid.Row="3" Grid.Column="0" />
+                    <Label Content="{Binding Path=CurrentPlayer.XP}" Grid.Row="3" Grid.Column="1" />
+
+                    <Label Content="HP" Grid.Row="4" Grid.Column="0" />
+                    <Label Content="{Binding Path=CurrentPlayer.HP}" Grid.Row="4" Grid.Column="1" />
+                    
+                    <!-- <Button Grid.Row="5" Grid.Column="0" Content="Add XP" Click="ButtonBase_OnClick"></Button> -->
                 </Grid>
-                <ListBox Grid.Row="2" ItemsSource="{Binding Path=Inventory, Source={x:Static local:MainWindow.Player}}"
+                <!--<ListBox Grid.Row="2" ItemsSource="{Binding Path=Inventory, Source={x:Static local:MainWindow.Player}}"
                          ItemContainerStyle="{StaticResource PlayerDataListItemStyle}"
-                         ItemTemplate="{StaticResource PlayerDataListItem}" />
+                         ItemTemplate="{StaticResource PlayerDataListItem}" />-->
             </Grid>
         </mat:Card>
-        <mat:Card Margin="5" Padding="10" Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch"
+        
+        <mat:Card Margin="5" Padding="10" Grid.Row="1" Grid.Column="1" 
+                  VerticalAlignment="Stretch" 
                   HorizontalAlignment="Stretch">
-            <Label Content="Game Data" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height = "*"/>
+                    <RowDefinition Height = "*"/>
+                </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width = "3*"/>
+                    <ColumnDefinition Width = "2*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Border Grid.Row="0" Grid.Column="1" 
+                        BorderBrush="Gainsboro" 
+                        BorderThickness="1">
+                    <Grid Margin="3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <TextBlock Grid.Row="0"
+                                   HorizontalAlignment="Center"
+                                   Text="{Binding CurrentLocation.Name}"/>
+                        
+                        <Image Grid.Row="1"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Height="125"
+                               Width="125"
+                               Source="{Binding CurrentLocation.ImageName}"/>
+                        <TextBlock Grid.Row="2"
+                                   HorizontalAlignment="Center"
+                                   Text="{Binding CurrentLocation.Description}"/>
+                    </Grid>
+                </Border>
+                
+                <Label Content="Game Data" />
+            </Grid>
         </mat:Card>
-        <mat:Card Margin="5" Padding="10" Grid.Row="2" Grid.Column="0" VerticalAlignment="Stretch"
-                  HorizontalAlignment="Stretch">
+        
+        <mat:Card Margin="5" Padding="10" Grid.Row="2" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <Grid>
                 <Label Content="Inventory/Quests" />
             </Grid>
         </mat:Card>
-        <mat:Card Margin="5" Padding="10" Grid.Row="2" Grid.Column="1" VerticalAlignment="Stretch"
-                  HorizontalAlignment="Stretch">
+        
+        <mat:Card Margin="5" Padding="10" Grid.Row="2" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="255" />
+                </Grid.ColumnDefinitions>
+                
+                <Grid Grid.Row="0" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Button Grid.Row="0" Grid.Column="1" Height ="50" Width = "75" Margin="5" Click="OnClick_MoveNorth" Visibility="{Binding HasLocationToNorth, Converter={StaticResource BooleanToVisibility}}" Content="North"  />
+                    <Button Grid.Row="1" Grid.Column="0" Height ="50" Width = "75" Margin="5" Click="OnClick_MoveWest" Visibility="{Binding HasLocationToWest, Converter={StaticResource BooleanToVisibility}}"  Content="West" />
+                    <Button Grid.Row="1" Grid.Column="2" Height ="50" Width = "75" Margin="5" Click="OnClick_MoveEast" Visibility="{Binding HasLocationToEast, Converter={StaticResource BooleanToVisibility}}"  Content="East" />
+                    <Button Grid.Row="2" Grid.Column="1" Height ="50" Width = "75" Margin="5" Click="OnClick_MoveSouth" Visibility="{Binding HasLocationToSouth, Converter={StaticResource BooleanToVisibility}}"  Content="South"  />
+                    
+                </Grid>
+                
                 <Label Content="Combat/Movement Controls" />
             </Grid>
         </mat:Card>
+        
     </Grid>
 </Window>
