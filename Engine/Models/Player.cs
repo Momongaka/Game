@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Engine.Models
 {
-    public class Player : INotifyPropertyChanged
+    public class Player : BaseNotificationClass
     {
 
         private string _name;
@@ -17,48 +17,19 @@ namespace Engine.Models
         private int _level;
         private int _gold;
         public string Name
-        {
-            get { return _name;}
-            set
-            { _name = value; OnPropertyChanged("Name"); }
-        }
+        { get { return _name;} set { _name = value; OnPropertyChanged(nameof(Name)); } }
         public string CharacterClass
-        {
-            get { return _characterClass;}
-            set
-            { _characterClass = value; OnPropertyChanged("CharacterClass"); }
-        }
+        { get { return _characterClass;} set { _characterClass = value; OnPropertyChanged(nameof(CharacterClass)); } }
         public int HP 
-        {
-            get { return _hP;}
-            set
-            { _hP = value; OnPropertyChanged("HP"); }
-        }
+        { get { return _hP;} set { _hP = value; OnPropertyChanged(nameof(HP)); } }
 
         public int XP
-        {
-            get { return _experiencePoints;}
-            set
-            { _experiencePoints = value; OnPropertyChanged("XP"); }
-        }
+        { get { return _experiencePoints;} set { _experiencePoints = value; OnPropertyChanged(nameof(XP)); } }
 
         public int Level
-        {
-            get { return _level;}
-            set
-            { _level = value; OnPropertyChanged("Level"); }
-        }
+        { get { return _level;} set { _level = value; OnPropertyChanged(nameof(Level)); } }
         public int Gold
-        {
-            get { return _gold;}
-            set
-            { _gold = value; OnPropertyChanged("Gold"); }
-        }
+        { get { return _gold;} set { _gold = value; OnPropertyChanged(nameof(Gold)); } }
         
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this,new PropertyChangedEventArgs(propertyName));
-        }
     }
 }
