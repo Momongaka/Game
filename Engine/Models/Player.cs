@@ -41,6 +41,5 @@ namespace Engine.Models
             Inventory = new ObservableCollection<GameItem>();
             Quests = new ObservableCollection<QuestStatus>();
         }
-        
     }
 }
