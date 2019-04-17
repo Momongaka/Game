@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace Engine.Models
 {
@@ -30,6 +31,13 @@ namespace Engine.Models
         { get { return _level;} set { _level = value; OnPropertyChanged(nameof(Level)); } }
         public int Gold
         { get { return _gold;} set { _gold = value; OnPropertyChanged(nameof(Gold)); } }
+        
+        public ObservableCollection<GameItem> Inventory { get; set; }
+
+        public Player()
+        {
+            Inventory = new ObservableCollection<GameItem>();
+        }
         
     }
 }

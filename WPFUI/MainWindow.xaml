@@ -154,7 +154,6 @@
                                    Text="{Binding CurrentLocation.Description}"/>
                     </Grid>
                 </Border>
-                
                 <Label Content="Game Data" />
             </Grid>
         </mat:Card>
@@ -162,6 +161,14 @@
         <mat:Card Margin="5" Padding="10" Grid.Row="2" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <Grid>
                 <Label Content="Inventory/Quests" />
+                <TabControl>
+                    <TabItem Header = "Inventory">
+                        <DataGrid ItemsSource="{Binding CurrentPlayer.Inventory}" AutoGenerateColumns="False" HeadersVisibility="Column">
+                            <DataGridTextColumn Header="Description" Binding="{Binding Name}" Width="*"/>
+                            <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="Auto"/>
+                        </DataGrid>
+                    </TabItem>
+                </TabControl>
             </Grid>
         </mat:Card>
         
