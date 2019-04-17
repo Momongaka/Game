@@ -23,6 +23,8 @@ namespace Engine.Factories
             newWorld.AddLocation(2, 0, "Spider Forest", "The trees in this forest are covered with spider webs.", "/Engine;component/Images/Locations/SpiderForest.png");
  
             newWorld.AddLocation(0, 1, "Herbalist's hut", "You see a small hut, with plants drying from the roof.", "/Engine;component/Images/Locations/HerbalistHut.png");
+            
+            newWorld.LocationAt(0,1).QuestAvailableHere.Add(QuestFactory.GetQuestByID(1));
  
             newWorld.AddLocation(0, 2, "Herbalist's garden", "There are many plants here, with snakes hiding behind them.", "/Engine;component/Images/Locations/HerbalistGarden.png");
  

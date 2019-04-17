@@ -77,7 +77,7 @@ namespace Engine.ViewModels
 
            CurrentWorld = WorldFactory.CreateWorld();
 
-           CurrentLocation = CurrentWorld.LocationAt(0, -1);
+           CurrentLocation = CurrentWorld.LocationAt(0, 0);
         }
 
         public void MoveNorth()
@@ -110,6 +110,17 @@ namespace Engine.ViewModels
             {
                 CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1);
                 
+            }
+        }
+
+        public void GivePLayerQuestsAtLocation()
+        {
+            foreach (Quest quest in CurrentLocation.QuestAvailableHere)
+            {
+                if (!CurrentPlayer.Quests.Any(q =>q.PlayerQuest.ID == quest.ID))
+                {
+                    CurrentPlayer.Quests.Add(new QuestStatus(quest));
+                }
             }
         }
     }
