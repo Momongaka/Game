@@ -119,6 +119,7 @@
                   VerticalAlignment="Stretch" 
                   HorizontalAlignment="Stretch">
             <Grid>
+                <Label Content="Game Data" />
                 <Grid.RowDefinitions>
                     <RowDefinition Height = "*"/>
                     <RowDefinition Height = "*"/>
@@ -154,7 +155,7 @@
                                    Text="{Binding CurrentLocation.Description}"/>
                     </Grid>
                 </Border>
-                <Label Content="Game Data" />
+                
             </Grid>
         </mat:Card>
         
@@ -164,8 +165,10 @@
                 <TabControl>
                     <TabItem Header = "Inventory">
                         <DataGrid ItemsSource="{Binding CurrentPlayer.Inventory}" AutoGenerateColumns="False" HeadersVisibility="Column">
-                            <DataGridTextColumn Header="Description" Binding="{Binding Name}" Width="*"/>
-                            <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="Auto"/>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Description" Binding="{Binding Name}" Width="*"/>
+                                <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="Auto"/>
+                            </DataGrid.Columns>
                         </DataGrid>
                     </TabItem>
                 </TabControl>

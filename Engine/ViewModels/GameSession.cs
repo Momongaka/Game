@@ -28,6 +28,10 @@ namespace Engine.ViewModels
                 OnPropertyChanged(nameof(HasLocationToEast));
                 OnPropertyChanged(nameof(HasLocationToSouth));
                 OnPropertyChanged(nameof(HasLocationToWest));
+                
+                CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1001));
+                CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1001));
+                CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1002));
             }
         }
 
