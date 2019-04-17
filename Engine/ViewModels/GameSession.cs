@@ -10,7 +10,7 @@ using Engine.Factories;
 
 namespace Engine.ViewModels
 {
-    public class GameSession : INotifyPropertyChanged
+    public class GameSession : BaseNotificationClass
     {
         private Location _currentLocation;
         
@@ -23,11 +23,14 @@ namespace Engine.ViewModels
             {
                 _currentLocation = value;
                 
-                OnPropertyChanged("CurrentLocation");
-                OnPropertyChanged("HasLocationToNorth");
-                OnPropertyChanged("HasLocationToEast");
-                OnPropertyChanged("HasLocationToWest");
-                OnPropertyChanged("HasLocationToSouth");
+                OnPropertyChanged(nameof(CurrentLocation));
+                OnPropertyChanged(nameof(HasLocationToNorth));
+                OnPropertyChanged(nameof(HasLocationToEast));
+                OnPropertyChanged(nameof(HasLocationToSouth));
+                OnPropertyChanged(nameof(HasLocationToWest));
+                
+                CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1001));
+                CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1002));
             }
         }
 
@@ -56,46 +59,69 @@ namespace Engine.ViewModels
         {
             get
             {
-                return CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate + 1) != null;
+                return CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate) != null;
             }
         }
         public GameSession()
         {
-            CurrentPlayer = new Player();
-            CurrentPlayer.Name = "Daniel";
-            CurrentPlayer.CharacterClass = "Fighter";
-            CurrentPlayer.HP = 10;
-            CurrentPlayer.Gold = 1000000;
-            CurrentPlayer.XP = 0;
-            CurrentPlayer.Level = 1;
+            CurrentPlayer = new Player
+            {
+                Name = "Daniel",
+                CharacterClass = "Fighter",
+                HP = 10,
+                Gold = 1000000,
+                XP = 0,
+                Level = 1
 
-            WorldFactory factory = new WorldFactory();
-            CurrentWorld = factory.CreateWorld();
+            };
 
-            CurrentLocation = CurrentWorld.LocationAt(0, 0);
+           CurrentWorld = WorldFactory.CreateWorld();
+
+           CurrentLocation = CurrentWorld.LocationAt(0, 0);
         }
 
         public void MoveNorth()
         {
-            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1);
+            if (HasLocationToNorth)
+            {
+                CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1);
+                
+            }
         }
         public void MoveEast()
         {
-            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate);
+            if (HasLocationToEast)
+            {
+                CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate); 
+                
+            }
         }
         public void MoveWest()
         {
-            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate);
+            if (HasLocationToWest)
+            {
+                CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate);
+                
+            }
         }
         public void MoveSouth()
         {
-            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1);
+            if (HasLocationToSouth)
+            {
+                CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1);
+                
+            }
         }
-        
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
+
+        public void GivePLayerQuestsAtLocation()
         {
-            PropertyChanged?.Invoke(this,new PropertyChangedEventArgs(propertyName));
+            foreach (Quest quest in CurrentLocation.QuestAvailableHere)
+            {
+                if (!CurrentPlayer.Quests.Any(q =>q.PlayerQuest.ID == quest.ID))
+                {
+                    CurrentPlayer.Quests.Add(new QuestStatus(quest));
+                }
+            }
         }
     }
 }
