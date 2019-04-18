@@ -66,5 +66,3 @@ J:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI.csproj.CoreCompileInputs.cache
 J:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI.csproj.CopyComplete
 J:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI.exe
 J:\C# Programs\SOSCSRPG\WPFUI\obj\Debug\WPFUI.pdb
-I:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\Engine.dll
-I:\C# Programs\SOSCSRPG\WPFUI\bin\Debug\Engine.pdb
