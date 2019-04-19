@@ -173,7 +173,7 @@
                 <Border Grid.Row="0" Grid.Column="1" 
                         BorderBrush="Gainsboro" 
                         BorderThickness="1">
-                    <Grid Margin="3">
+                    <Grid Margin="5">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
