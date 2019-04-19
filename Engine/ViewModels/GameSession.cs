@@ -80,7 +80,7 @@ namespace Engine.ViewModels
         {
             CurrentPlayer = new Player
                             {
-                                Name = "Scott",
+                                Name = "Daniel",
                                 CharacterClass = "Fighter",
                                 HP = 10,
                                 Gold = 1000000,
