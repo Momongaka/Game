@@ -22,6 +22,7 @@ namespace WPFUI
         {
             InitializeComponent();
             _gameSession = new GameSession();
+            _gameSession.OnMessageRaised += OnGameMessageRaised;
             DataContext = _gameSession;
         }
 

@@ -12,14 +12,13 @@ namespace Engine.Models
         public int HitPoints
         {
             get { return _hitPoints; }
-            private set
+            set
             {
                 _hitPoints = value;
                 OnPropertyChanged(nameof(HitPoints));
             }
         }
-        
-        public int MinimiumDamage { get; set; }
+        public int MinimumDamage { get; set; }
         public int MaximumDamage { get; set; }
 
         public int RewardExperiencePoints { get; private set; }
@@ -27,16 +26,17 @@ namespace Engine.Models
 
         public ObservableCollection<ItemQuantity> Inventory { get; set; }
 
-        public Monster(string name, string imageName, 
+        public Monster(string name, string imageName,
             int maximumHitPoints, int hitPoints,
-            int minimiumDamage, int maximumDamage,
+            int minimumDamage, int maxmumDamage,
             int rewardExperiencePoints, int rewardGold)
         {
             Name = name;
-            /*ImageName = string.Format("/Engine;component/Images/Monsters/{0}", imageName);*/
-            ImageName = string.Format("pack://application:,,,/Engine;component/Images/Monsters/{0}", imageName);
+            ImageName = string.Format("/Engine;component/Images/Monsters/{0}", imageName);
             MaximumHitPoints = maximumHitPoints;
             HitPoints = hitPoints;
+            MinimumDamage = minimumDamage;
+            MaximumDamage = maxmumDamage;
             RewardExperiencePoints = rewardExperiencePoints;
             RewardGold = rewardGold;
 
