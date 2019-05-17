@@ -5,6 +5,8 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Data;
+using System.Windows.Documents;
+using Engine.EventArgs;
 using Engine.ViewModels;
 
 namespace WPFUI
@@ -20,6 +22,7 @@ namespace WPFUI
         {
             InitializeComponent();
             _gameSession = new GameSession();
+            _gameSession.OnMessageRaised += OnGameMessageRaised;
             DataContext = _gameSession;
         }
 
@@ -43,21 +46,11 @@ namespace WPFUI
             {
                 _gameSession.CurrentPlayer.XP = _gameSession.CurrentPlayer.XP + 10;
             }*/
+        private void OnGameMessageRaised(object sender, GameMessageEventArgs e)
+        {
+            GameMessages.Document.Blocks.Add(new Paragraph(new Run(e.Message)));
+            GameMessages.ScrollToEnd();
+        }
     }
     
-    public class Prop<T> : INotifyPropertyChanged
-    {
-        private T _value;
-
-        public T Value
-        {
-            get => _value; 
-            set { _value = value; NotifyPropertyChanged(nameof(_value)); }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void NotifyPropertyChanged(String propertyName) => 
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
 }
