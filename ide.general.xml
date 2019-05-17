@@ -13,5 +13,6 @@
     <entry key="ide.tree.horizontal.default.autoscrolling" value="false" />
     <entry key="search.everywhere.settings" value="true" />
     <entry key="ide.win.file.chooser.native" value="true" />
+    <entry key="ide.win.frame.decoration" value="true" />
   </component>
 </application>
